@@ -1,0 +1,84 @@
+/* My Own Styles */
+html {
+	/*direction: rtl;*/
+	webkit-font-smoothing: antialiased;
+}
+
+
+@font-face {
+	font-family: 'Iranian Sans';
+	src: url('http://awebfont.ir/services/fonts/773bba0f218e4740e1ce2e37ebc80ef3c29917152901931.eot');
+	src: url('http://awebfont.ir/services/fonts/773bba0f218e4740e1ce2e37ebc80ef3c29917152901931.otf') format('opentype');
+	src: local('☺'),
+	local('Iranian Sans'),
+	url('http://awebfont.ir/services/fonts/773bba0f218e4740e1ce2e37ebc80ef3c29917152901931.woff') format('woff'),
+	url('http://awebfont.ir/services/fonts/773bba0f218e4740e1ce2e37ebc80ef3c29917152901931.ttf') format('truetype'),
+	url('http://awebfont.ir/services/fonts/773bba0f218e4740e1ce2e37ebc80ef3c29917152901931.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+body {
+	font-family: "Iranian Sans", "Roboto", "sans-serif";
+}
+
+
+
+
+/* ================================================================ */
+/* ======================== SEARCH section ======================== */
+
+/* Dropdown (select) list styles */
+#search {
+	/*position: absolute;*/
+	/*z-index: 4;*/
+}
+
+.select-wrapper span.caret {
+	right: auto;
+	left: 0;
+}
+
+.select-wrapper, .input-field label, ul.dropdown-content li {
+	direction: rtl;
+	text-align: right;
+	cursor: default;
+	right: 0;
+}
+
+ul.dropdown-content li {
+	cursor: hand;
+}
+
+/* District selection text field style */
+#search input {
+	direction: rtl;
+	text-align: right;
+}
+/* ======================== SEARCH section ======================== */
+/* ================================================================ */
+
+
+
+
+
+/* ================================================================ */
+/* ======================= CARD VIEW section ====================== */
+
+.card-content 	{
+	margin-top: -1em;
+	font-size: .9em;
+}
+.card-content i	{margin-top: .5em;}
+.card-content button {
+	width: 100%;
+}
+
+
+.card-reveal 	{font-size: .85em;}
+
+.card-reveal p 	{direction: rtl;}
+.card-reveal i 	{direction: ltr;}
+/* ======================= CARD VIEW section ====================== */
+/* ================================================================ */

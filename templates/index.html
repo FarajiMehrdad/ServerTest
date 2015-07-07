@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="fa"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="fa"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="fa"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fa"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+	<meta name="description" content="در زمان و مکان دلخواه، به راحتی سانس‌های ورزشی را رزرو کنید.">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>فوتسالن | رزرو سالن ورزشی</title>
+
+	<link type="text/css" rel="stylesheet" href="static/css/normalize.css" />
+	<link type="text/css" rel="stylesheet" href="static/css/materialize.min.css" media="screen,projection" />
+	<link type="text/css" rel="stylesheet" href="static/css/style.css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+	<script src="static/js/modernizr.js"></script>
+</head>
+
+<body>
+	<!-- 	<header class="navbar-fixed"> -->
+	<header>
+		<nav>
+			<div class="nav-wrapper">
+				<ul id="nav-mobile" class="left hide-on-med-and-down">
+					<li><a href="">ثبت نام</a></li>
+					<li><a href="">ورود</a></li>
+					<li><a href="">راهنما</a></li>
+				</ul>
+				<a href="#" class="brand-logo right">Logo</a>
+			</div>
+		</nav>
+	</header>
+
+
+
+	<div class="slider">
+		<ul class="slides">
+			<li>
+				<img src="static/img/futsal1.jpg"> <!-- random image -->
+				<div class="caption center-align">
+					<h3>This is our big Tagline!</h3>
+					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+				</div>
+			</li>
+			<li>
+				<img src="static/img/futsal2.jpg"> <!-- random image -->
+				<div class="caption left-align">
+					<h3>Left Aligned Caption</h3>
+					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+				</div>
+			</li>
+			<li>
+				<img src="static/img/futsal3.jpg"> <!-- random image -->
+				<div class="caption right-align">
+					<h3>Right Aligned Caption</h3>
+					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+				</div>
+			</li>
+			<li>
+				<img src="static/img/futsal4.jpg"> <!-- random image -->
+				<div class="caption center-align">
+					<h3>This is our big Tagline!</h3>
+					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<section id="search" class="container center">
+		<div class="card-panel hoverable">
+
+			<form>
+				<div class="row valign-wrapper">
+					<!-- Submit -->
+					<!-- <button class="col s2 btn waves-effect waves-light" type="submit" name="action">جست‌وجو<i class="material-icons left">search</i></button> -->
+					<div class="col s4 l1 valign">
+						<button class="btn-floating btn-large waves-effect waves-light center"><i class="material-icons">search</i></button>
+					</div>
+
+					<!-- Switch -->
+					<div class="col s8 l3 valign switch">
+						<label>
+							بانوان
+							<input type="checkbox">
+							<span class="lever"></span>
+							آقایان
+						</label>
+					</div>
+
+					<!-- Select District -->
+					<div class="col s12 l4 valign input-field">
+						<input id="icon_prefix" type="text" class="validate" placeholder="مثلاً: ۸  ۴  ۱۳">
+						<label for="icon_prefix">در کدام منطقه؟ با فاصله (space) جدا کنید.</label>
+					</div>
+
+
+					<!-- Select Sport -->
+					<div class="col s12 l4 valign input-field">
+						<select id="sportVar">
+							<option value="1">فوتسال</option>
+							<option value="2">فوتبال</option>
+							<option value="3">والیبال</option>
+							<option value="4">بسکتبال</option>
+							<option value="5">هندبال</option>
+							<option value="6">بدمینتون</option>
+						</select>
+						<label for="sportVar">چه ورزشی می‌خواهید؟</label>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+
+
+
+	<section id="cardview" class="row">
+        {% for salon in items %}
+		<div class="col s12 m6 l3 right">
+			<div class="card small hoverable">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="static/img/futsal1.jpg">
+				</div>
+				<div class="card-content right-align">
+					<span class="card-title activator grey-text text-darken-4">{{salon.date.decode('utf-8')}}<i class="material-icons left">more_vert</i></span>
+					<p>{{salon.time_duration.decode('utf-8')}}<br>مجموعه‌ی ورزشی شاهین</p>
+					<!-- <p><a href="#!">رزرو سانس</a></p> -->
+					<button class="btn waves-effect waves-light left" type="submit" name="action">رزرو سانس</button>
+				</div>
+				<div class="card-reveal right-align" style="display: none; transform: translateY(0px);">
+					<span class="card-title grey-text text-darken-4">اطلاعات بیشتر<i class="material-icons left">close</i></span>
+					<p class="valign-wrapper"><i class="material-icons valign">person_pin</i>{{salon.gender.decode('utf-8')}}</p>
+					<p class="valign-wrapper"><i class="material-icons valign">import_export</i>{{salon.parking.decode('utf-8')}}</p>
+					<p class="valign-wrapper"><i class="material-icons valign">toc</i>فوتسال، والیبال، بسکتبال، بدمینتون</p>
+					<hr>
+					<p><strong>آدرس: </strong> {{salon.address.decode('utf-8')}} <a href="#">(روی نقشه)</a></p>
+				</div>
+			</div>
+		</div>
+        {% endfor %}
+
+		<div class="col s12 m6 l3 right">
+			<div class="card small hoverable">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="static/img/futsal1.jpg">
+				</div>
+				<div class="card-content right-align">
+					<span class="card-title activator grey-text text-darken-4">یکشنبه ۲۵ مرداد<i class="material-icons left">more_vert</i></span>
+					<p>ساعت ۱۸-۱۹:۳۰<br>مجموعه‌ی ورزشی شاهین</p>
+					<!-- <p><a href="#!">رزرو سانس</a></p> -->
+					<button class="btn waves-effect waves-light left" type="submit" name="action">رزرو سانس</button>
+				</div>
+				<div class="card-reveal right-align" style="display: none; transform: translateY(0px);">
+					<span class="card-title grey-text text-darken-4">اطلاعات بیشتر<i class="material-icons left">close</i></span>
+					<p class="valign-wrapper"><i class="material-icons valign">person_pin</i>بانوان</p>
+					<p class="valign-wrapper"><i class="material-icons valign">import_export</i>پارکینگ</p>
+					<p class="valign-wrapper"><i class="material-icons valign">toc</i>فوتسال، والیبال، بسکتبال، بدمینتون</p>
+					<hr>
+					<p><strong>آدرس: </strong>نارمک، میدان هلال‌احمر، خیابان گلستان، پشت مترو فدک <a href="#">(روی نقشه)</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s12 m6 l3 right">
+			<div class="card small hoverable">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="static/img/futsal1.jpg">
+				</div>
+				<div class="card-content right-align">
+					<span class="card-title activator grey-text text-darken-4">یکشنبه ۲۵ مرداد<i class="material-icons left">more_vert</i></span>
+					<p>ساعت ۱۸-۱۹:۳۰<br>مجموعه‌ی ورزشی شاهین</p>
+					<!-- <p><a href="#!">رزرو سانس</a></p> -->
+					<button class="btn waves-effect waves-light left" type="submit" name="action">رزرو سانس</button>
+				</div>
+				<div class="card-reveal right-align" style="display: none; transform: translateY(0px);">
+					<span class="card-title grey-text text-darken-4">اطلاعات بیشتر<i class="material-icons left">close</i></span>
+					<p class="valign-wrapper"><i class="material-icons valign">person_pin</i>بانوان</p>
+					<p class="valign-wrapper"><i class="material-icons valign">import_export</i>پارکینگ</p>
+					<p class="valign-wrapper"><i class="material-icons valign">toc</i>فوتسال، والیبال، بسکتبال، بدمینتون</p>
+					<hr>
+					<p><strong>آدرس: </strong>نارمک، میدان هلال‌احمر، خیابان گلستان، پشت مترو فدک <a href="#">(روی نقشه)</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s12 m6 l3 right">
+			<div class="card small hoverable">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="static/img/futsal1.jpg">
+				</div>
+				<div class="card-content right-align">
+					<span class="card-title activator grey-text text-darken-4">یکشنبه ۲۵ مرداد<i class="material-icons left">more_vert</i></span>
+					<p>ساعت ۱۸-۱۹:۳۰<br>مجموعه‌ی ورزشی شاهین</p>
+					<!-- <p><a href="#!">رزرو سانس</a></p> -->
+					<button class="btn waves-effect waves-light left" type="submit" name="action">رزرو سانس</button>
+				</div>
+				<div class="card-reveal right-align" style="display: none; transform: translateY(0px);">
+					<span class="card-title grey-text text-darken-4">اطلاعات بیشتر<i class="material-icons left">close</i></span>
+					<p class="valign-wrapper"><i class="material-icons valign">person_pin</i>بانوان</p>
+					<p class="valign-wrapper"><i class="material-icons valign">import_export</i>پارکینگ</p>
+					<p class="valign-wrapper"><i class="material-icons valign">toc</i>فوتسال، والیبال، بسکتبال، بدمینتون</p>
+					<hr>
+					<p><strong>آدرس: </strong>نارمک، میدان هلال‌احمر، خیابان گلستان، پشت مترو فدک <a href="#">(روی نقشه)</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s12 m6 l3 right">
+			<div class="card small hoverable">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="static/img/futsal1.jpg">
+				</div>
+				<div class="card-content right-align">
+					<span class="card-title activator grey-text text-darken-4">یکشنبه ۲۵ مرداد<i class="material-icons left">more_vert</i></span>
+					<p>ساعت ۱۸-۱۹:۳۰<br>مجموعه‌ی ورزشی شاهین</p>
+					<!-- <p><a href="#!">رزرو سانس</a></p> -->
+					<button class="btn waves-effect waves-light left" type="submit" name="action">رزرو سانس</button>
+				</div>
+				<div class="card-reveal right-align" style="display: none; transform: translateY(0px);">
+					<span class="card-title grey-text text-darken-4">اطلاعات بیشتر<i class="material-icons left">close</i></span>
+					<p class="valign-wrapper"><i class="material-icons valign">person_pin</i>بانوان</p>
+					<p class="valign-wrapper"><i class="material-icons valign">import_export</i>پارکینگ</p>
+					<p class="valign-wrapper"><i class="material-icons valign">toc</i>فوتسال، والیبال، بسکتبال، بدمینتون</p>
+					<hr>
+					<p><strong>آدرس: </strong>نارمک، میدان هلال‌احمر، خیابان گلستان، پشت مترو فدک <a href="#">(روی نقشه)</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s12 m6 l3 right">
+			<div class="card small hoverable">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="static/img/futsal1.jpg">
+				</div>
+				<div class="card-content right-align">
+					<span class="card-title activator grey-text text-darken-4">یکشنبه ۲۵ مرداد<i class="material-icons left">more_vert</i></span>
+					<p>ساعت ۱۸-۱۹:۳۰<br>مجموعه‌ی ورزشی شاهین</p>
+					<!-- <p><a href="#!">رزرو سانس</a></p> -->
+					<button class="btn waves-effect waves-light left" type="submit" name="action">رزرو سانس</button>
+				</div>
+				<div class="card-reveal right-align" style="display: none; transform: translateY(0px);">
+					<span class="card-title grey-text text-darken-4">اطلاعات بیشتر<i class="material-icons left">close</i></span>
+					<p class="valign-wrapper"><i class="material-icons valign">person_pin</i>بانوان</p>
+					<p class="valign-wrapper"><i class="material-icons valign">import_export</i>پارکینگ</p>
+					<p class="valign-wrapper"><i class="material-icons valign">toc</i>فوتسال، والیبال، بسکتبال، بدمینتون</p>
+					<hr>
+					<p><strong>آدرس: </strong>نارمک، میدان هلال‌احمر، خیابان گلستان، پشت مترو فدک <a href="#">(روی نقشه)</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s12 m6 l3 right">
+			<div class="card small hoverable">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="static/img/futsal1.jpg">
+				</div>
+				<div class="card-content right-align">
+					<span class="card-title activator grey-text text-darken-4">یکشنبه ۲۵ مرداد<i class="material-icons left">more_vert</i></span>
+					<p>ساعت ۱۸-۱۹:۳۰<br>مجموعه‌ی ورزشی شاهین</p>
+					<!-- <p><a href="#!">رزرو سانس</a></p> -->
+					<button class="btn waves-effect waves-light left" type="submit" name="action">رزرو سانس</button>
+				</div>
+				<div class="card-reveal right-align" style="display: none; transform: translateY(0px);">
+					<span class="card-title grey-text text-darken-4">اطلاعات بیشتر<i class="material-icons left">close</i></span>
+					<p class="valign-wrapper"><i class="material-icons valign">person_pin</i>بانوان</p>
+					<p class="valign-wrapper"><i class="material-icons valign">import_export</i>پارکینگ</p>
+					<p class="valign-wrapper"><i class="material-icons valign">toc</i>فوتسال، والیبال، بسکتبال، بدمینتون</p>
+					<hr>
+					<p><strong>آدرس: </strong>نارمک، میدان هلال‌احمر، خیابان گلستان، پشت مترو فدک <a href="#">(روی نقشه)</a></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<br>
+
+
+	<footer class="page-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Footer Content</h5>
+					<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Links</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				© 2014 Copyright Text
+				<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+			</div>
+		</div>
+	</footer>
+
+	<script src="static/js/jquery-2.1.4.min.js"></script>
+	<script src="static/js/materialize.min.js"></script>
+	<script src="static/js/placeholders.min.js"></script>
+	<script src="static/js/main.js">
+	</script>
+</body>
+</html>
